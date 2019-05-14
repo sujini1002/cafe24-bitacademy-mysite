@@ -12,6 +12,20 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
+	<!-- FiterEncoding -->
+	<filter>
+		<filter-name>EncodingFilter</filter-name>
+		<filter-class>com.cafe24.web.mvc.filter.EncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>EncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- Servelt:URL Mapping  -->
 	<servlet>
 		<description></description>
 		<display-name>MainServlet</display-name>
@@ -20,6 +34,37 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>MainServlet</servlet-name>
-		<url-pattern>/main</url-pattern>
+		<url-pattern></url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>GuestBookServlet</display-name>
+		<servlet-name>GuestBookServlet</servlet-name>
+		<servlet-class>com.cafe24.mysite.controller.GuestBookServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GuestBookServlet</servlet-name>
+		<url-pattern>/guestbook</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>UserServlet</display-name>
+		<servlet-name>UserServlet</servlet-name>
+		<servlet-class>com.cafe24.mysite.controller.UserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserServlet</servlet-name>
+		<url-pattern>/user</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>LifeCircleServlet</display-name>
+		<servlet-name>LifeCircleServlet</servlet-name>
+		<servlet-class>com.cafe24.mysite.controller.LifeCircleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LifeCircleServlet</servlet-name>
+		<url-pattern>/lc</url-pattern>
+	</servlet-mapping>
+
 </web-app>
