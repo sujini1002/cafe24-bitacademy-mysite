@@ -20,11 +20,13 @@ public class UserDao {
 		try {
 			conn = getConnetction();
 
-			String sql = "update user set password=?,gender=? where no =?";
+			String sql = "update user set password=?,gender=?,name=?,email=? where no =?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getPassword());
 			pstmt.setString(2, vo.getGender());
-			pstmt.setLong(3, vo.getNo());
+			pstmt.setString(3, vo.getName());
+			pstmt.setString(4, vo.getEmail());
+			pstmt.setLong(5, vo.getNo());
 
 			int cnt = pstmt.executeUpdate();
 			result = cnt == 1 ? true : false;

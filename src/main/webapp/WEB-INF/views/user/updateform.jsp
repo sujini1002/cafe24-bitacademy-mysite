@@ -22,11 +22,11 @@
 					<input type="hidden" name="a" value="update">
 					<input type="hidden" name="no" value="<%=vo.getNo() %>">
 					<label class="block-label" for="name" >이름</label>
-					<input id="name" name="name" type="text" value="<%=vo.getName() %>" disabled/>
+					<input id="name" name="name" type="text" value="<%=vo.getName() %>"/>
 
 					<label class="block-label" for="email">이메일</label>
-					<input id="email" name="email" type="text" value="<%=vo.getEmail()%>" disabled/>
-					<!-- <input type="button" value="id 중복체크"> -->
+					<input id="email" name="email" type="text" value="<%=vo.getEmail()%>"/>
+					<input type="button" value="id 중복체크">
 					
 					<label class="block-label">패스워드</label>
 					<input name="password" type="password" value="<%=vo.getPassword()%>">

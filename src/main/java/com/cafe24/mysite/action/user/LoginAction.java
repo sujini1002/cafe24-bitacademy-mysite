@@ -28,8 +28,9 @@ public class LoginAction implements Action {
 			return;//return이 없으면 코드 오류 발생
 		}
 		//로그인 처리
-		HttpSession session = request.getSession();
-		session.setAttribute("authUser", authUser);
+		//request.getSesion(false)= 세션이 존재한다면 반환하고, 없으면 null로 반환(true나 생략된것은 없으면 새로 생성한다.)
+		HttpSession session = request.getSession();//HttpSession을 생성한 것을 session에 저장한다. 
+		session.setAttribute("authUser", authUser);//session안에 있는 Attribute에 로그인 요청한 정보를 authUser라는 이름으로 저장한다.
 		
 		WebUtil.redirect(request, response, request.getContextPath());
 	}

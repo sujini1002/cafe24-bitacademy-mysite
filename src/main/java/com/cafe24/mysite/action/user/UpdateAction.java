@@ -28,17 +28,26 @@ public class UpdateAction implements Action {
 			return;
 		}
 		
-		//no, password,gender
+		//no, name,password,gender
 		Long no = Long.parseLong(request.getParameter("no"));
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String gender = request.getParameter("gender");
 		
+	
+		
 		UserVo vo = new UserVo();
 		vo.setNo(no);
+		vo.setName(name);
+		vo.setEmail(email);
 		vo.setPassword(password);
 		vo.setGender(gender);
 		
-		new UserDao().update(vo);
+		boolean result = new UserDao().update(vo);
+		if(result) {
+			session.setAttribute("authUser", vo);
+		}
 		
 		WebUtil.redirect(request, response, request.getContextPath()+"/user?a=updatesuccess");
 	}
