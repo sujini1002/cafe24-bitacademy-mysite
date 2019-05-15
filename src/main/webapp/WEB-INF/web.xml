@@ -3,7 +3,7 @@
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
-	<display-name>mysite1</display-name>
+	<display-name>guestbook</display-name>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>
@@ -12,6 +12,13 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/applicationContext.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>com.cafe24.mysite.listener.ContextLoadListener</listener-class>
+	</listener>
 	<!-- FiterEncoding -->
 	<filter>
 		<filter-name>EncodingFilter</filter-name>
@@ -31,6 +38,10 @@
 		<display-name>MainServlet</display-name>
 		<servlet-name>MainServlet</servlet-name>
 		<servlet-class>com.cafe24.mysite.controller.MainServlet</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/servlet-context.xml</param-value>
+		</init-param>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>MainServlet</servlet-name>
@@ -66,5 +77,5 @@
 		<servlet-name>LifeCircleServlet</servlet-name>
 		<url-pattern>/lc</url-pattern>
 	</servlet-mapping>
-
+	
 </web-app>

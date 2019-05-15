@@ -1,21 +1,26 @@
 package com.cafe24.mysite.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.cafe24.mysite.action.guestbook.GuestBookActionFactory;
 import com.cafe24.mysite.action.main.MainActionFactory;
-import com.cafe24.web.WebUtil;
 import com.cafe24.web.mvc.Action;
 
+//web.xml의 servlet url mapping을 어노테이션으로 변환한 것
+//@WebServlet({"/","/main","/index"})
 public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	@Override
+	public void init() throws ServletException {
+		String configPath = getServletConfig().getInitParameter("config"); //어플리케이션 컨텍스트 가져옴
+		System.out.println("init() called :"+configPath);//서블릿의 설정파일의 config값을 가져옴
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -37,4 +42,5 @@ public class MainServlet extends HttpServlet {
 		doGet(request, response);
 	}
 
+	
 }
