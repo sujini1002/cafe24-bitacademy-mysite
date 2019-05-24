@@ -138,7 +138,7 @@ public class GuestBookDao {
 		Connection conn = null;
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
-			String url = "jdbc:mariadb://192.168.1.37:3307/webdb";
+			String url = "jdbc:mariadb://192.168.1.19:3307/webdb";
 			conn = DriverManager.getConnection(url, "webdb", "webdb");
 
 		} catch (ClassNotFoundException e) {
